@@ -8,16 +8,19 @@ import { FilterFreeComponent } from './projects/filter-free/filter-free.componen
 import { SeedSearcherComponent } from './projects/seed-searcher/seed-searcher.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full'},
-  { path: 'about', component: AboutComponent},
-  { path: 'projects', component: ProjectsComponent, pathMatch: 'full', children: [
-    { path: 'FilterFree', component: FilterFreeComponent},
-    { path: 'SeedSearcher', component: SeedSearcherComponent},
-  ]},
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'about', component: AboutComponent },
+  { path: 'projects', component: ProjectsComponent, pathMatch: 'full' },
+  { path: 'FilterFree', component: FilterFreeComponent },
+  { path: 'SeedSearcher', component: SeedSearcherComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })
+  ],
+  exports: [RouterModule],
+  
 })
 export class AppRoutingModule { }

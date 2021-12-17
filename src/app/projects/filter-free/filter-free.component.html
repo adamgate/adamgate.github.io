@@ -1,1 +1,171 @@
-<p>filter-free works!</p>
+<div class="p-5 mb-4 bg-light border rounded-3">
+    <h1 class="display-5 fw-bold">Filter Free</h1>
+    <p class=" fs-4">Type: Image Editing Software</p>
+    <h1 class="fab fa-python"></h1>
+    <hr>
+    <p class="fs-4">Filter Free is a straightforward piece of image editing software built with <a
+            href="https://www.python.org/">Python 3</a>, <a href="https://wiki.python.org/moin/TkInter">TkInter</a>,
+        and <a href="https://opencv.org/">OpenCV2</a>. Its primary function is to apply various filters to the
+        user's photos, and it comes with other editing features on top of that. </p>
+    <a class="fab fa-github nav-link btn" href="https://github.com/AdamApplegate/Filter-Free"
+        style="margin-right: 10px; font-size: 16px;"> Source Code</a>
+</div>
+
+<div class="p-5 mb-4 border rounded-3">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="display-6 fw-bold">Summary</h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/emboss_demo_v1.gif" alt="Emboss Filter">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/cartoon-thick_demo_v1.gif"
+                                alt="Thick Lines Cartoon Filter">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/cartoon-thin_demo_v1.gif"
+                                alt="Thin Lines Cartoon Filter">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/sketch_demo_v1.gif" alt="Sketch Filter">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/invert_demo_v1.gif" alt="Invert Filter">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid rounded border"
+                                src="../assets/img/portfolio/filter-free/noisy_demo_v1.gif" alt="Noisy Filter">
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+
+                <p>Filter Free has six different filters that you can use to edit your photos. The filters are: emboss,
+                    cartoon with thick lines, cartoon with thin lines, sketch, invert, and old-fashioned. Each of those
+                    filters are shown in the images above, and will be explained here.</p>
+                <p>In addition to adding filters to your photos, Filter Free allows users to adjust the brighteness,
+                    contrast, and sharpness of their photos.</p>
+                <br><br>
+
+                <h3>How it Works</h3>
+                <p>The program contains an image processor that handles all of the image editing. When a
+                    user selects a filter or another change they would like to make to the photo, the photo
+                    and those changes are then sent to the image processor. The processor then executes those commands
+                    and applies the appropriate changes to the photo, and then sends the edited photo back.
+                    Because this method is modular, I can add as many filters or other photo editing features that I
+                    want to and still keep the project simple. </p>
+
+                <p>The filters each use different methods to produce the desired look. The majority of them use
+                    something called a "kernel" to alter the image. A kernel is a matrix that
+                    is used to alter the value of each pixel in an image based on the pixels surrounding it. If you're
+                    interested in learning more about it, <a href="https://setosa.io/ev/image-kernels/">here</a>
+                    is a resource that explains it pretty well. Other filters use masks, adjust the channels of the
+                    image, and use bitwise operators to get their distinctive looks.</p>
+                <br><br>
+
+
+                <h3>Emboss</h3>
+                <div class="container w-75">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/emboss_before.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/emboss_after.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <h3>Cartoon</h3>
+                <div class="container w-75">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/cartoon_before.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/cartoon-thick_after.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/cartoon-thin_after.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <h3>Sketch</h3>
+                <div class="container w-75">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/sketch_before.jpeg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/sketch_after.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <h3>Invert</h3>
+                <div class="container w-75">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/invert_before.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/invert_after.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <h3>Old-Fashioned</h3>
+                <div class="container w-75">
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/noisy_before.jpg" alt="">
+                        </div>
+                        <div class="col">
+                            <img class="img-fluid border rounded-3"
+                                src="../assets/img/portfolio/filter-free/noisy_after.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+
+                <h2>Wrap Up</h2>
+                <p>I really enjoyed making this project. It taught me a lot about OpenCV and image manipulation, but it
+                    also taught me how to integrate
+                    features into a modular UI that makes it easy to use. Up to this point, a lot of my projects have
+                    been command line based, and this was
+                    definitely a step up from that.</p>
+
+                <p>Maybe one day I'll revisit this project, and add some more advanced image manipulation features.
+                    Until then, see ya.</p>
+                <a class="btn" [routerLink]="['/projects']"
+                    style="margin-right: 10px; font-size: 16px;">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
