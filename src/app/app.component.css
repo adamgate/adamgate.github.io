@@ -1,0 +1,7 @@
+.card {
+	/* background: var(--bg-primary); */
+	box-shadow: 0 3px 0 0 var(--hl-secondary);
+	transition: all 0.3s ease-in-out;
+    border-color: 2px var(--bg-primary);
+    margin-right: 10px;
+}
