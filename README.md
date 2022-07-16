@@ -6,7 +6,7 @@ There are two branches of this repository:
 * gh-pages- The compiled website that is deployed to github pages.
 
 
-[Here's](https://adamapplegate.github.io) a link to the site.
+[Here's](https://adamgate.github.io) a link to the site.
 
 
 **Credit:**
