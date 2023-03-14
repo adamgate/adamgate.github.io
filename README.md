@@ -1,5 +1,5 @@
 # adamgate.github.io
-This is my GitHub Pages website, used to host my portfolio.
+This is my portfolio.
 
 Here is a [link](https://adamgate.github.io) to the hosted site.
 
