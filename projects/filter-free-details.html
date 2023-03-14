@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Adam Applegate - Filter Free</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyResume
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/filter-free/emboss_demo_v1.gif" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Filter Free</h3>
+              <ul>
+                <li><strong>Category</strong>: Image Editing Software</li>
+                <li><strong>Technologies</strong>: Python, TKinter, OpenCV, NumPy</li>
+                <!-- <li><strong>Project date</strong>:2021</li> -->
+                <li><strong>Source Code</strong>: <a href="https://github.com/adamgate/Filter-Free">Github Link</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <div class="p-5 mb-4 border rounded-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="display-6 fw-bold">Summary</h2>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/emboss_demo_v1.gif" alt="Emboss Filter">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/cartoon-thick_demo_v1.gif"
+                                            alt="Thick Lines Cartoon Filter">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/cartoon-thin_demo_v1.gif"
+                                            alt="Thin Lines Cartoon Filter">
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/sketch_demo_v1.gif" alt="Sketch Filter">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/invert_demo_v1.gif" alt="Invert Filter">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid rounded border"
+                                            src="../assets/img/portfolio/filter-free/noisy_demo_v1.gif" alt="Noisy Filter">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+            
+                            <p>Filter Free has six different filters that you can use to edit your photos. The filters are: emboss,
+                                cartoon with thick lines, cartoon with thin lines, sketch, invert, and old-fashioned. Each of those
+                                filters are shown in the images above, and will be explained here.</p>
+                            <p>In addition to adding filters to your photos, Filter Free allows users to adjust the brighteness,
+                                contrast, and sharpness of their photos.</p>
+                            <br><br>
+            
+                            <h3>How it Works</h3>
+                            <p>The program contains an image processor that handles all of the image editing. When a
+                                user selects a filter or another change they would like to make to the photo, the photo
+                                and those changes are then sent to the image processor. The processor then executes those commands
+                                and applies the appropriate changes to the photo, and then sends the edited photo back.
+                                Because this method is modular, I can add as many filters or other photo editing features that I
+                                want to and still keep the project simple. </p>
+            
+                            <p>The filters each use different methods to produce the desired look. The majority of them use
+                                something called a "kernel" to alter the image. A kernel is a matrix that
+                                is used to alter the value of each pixel in an image based on the pixels surrounding it. If you're
+                                interested in learning more about it, <a href="https://setosa.io/ev/image-kernels/">here</a>
+                                is a resource that explains it pretty well. Other filters use masks, adjust the channels of the
+                                image, and use bitwise operators to get their distinctive looks.</p>
+                            <br><br>
+            
+            
+                            <h3>Emboss</h3>
+                            <div class="container w-75">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/emboss_before.jpg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/emboss_after.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+            
+                            <h3>Cartoon</h3>
+                            <div class="container w-75">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/cartoon_before.jpg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/cartoon-thick_after.jpg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/cartoon-thin_after.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+            
+                            <h3>Sketch</h3>
+                            <div class="container w-75">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/sketch_before.jpeg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/sketch_after.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+            
+                            <h3>Invert</h3>
+                            <div class="container w-75">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/invert_before.jpg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/invert_after.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+            
+                            <h3>Old-Fashioned</h3>
+                            <div class="container w-75">
+                                <div class="row">
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/noisy_before.jpg" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <img class="img-fluid border rounded-3"
+                                            src="../assets/img/portfolio/filter-free/noisy_after.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br><br>
+            
+                            <h2>Wrap Up</h2>
+                            <p>I really enjoyed making this project. It taught me a lot about OpenCV and image manipulation, but it
+                                also taught me how to integrate
+                                features into a modular UI that makes it easy to use. Up to this point, a lot of my projects have
+                                been command line based, and this was
+                                definitely a step up from that.</p>
+            
+                            <p>Maybe one day I'll revisit this project, and add some more advanced image manipulation features.
+                                Until then, see ya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
