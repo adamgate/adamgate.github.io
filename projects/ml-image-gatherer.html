@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Adam Applegate - Bird Identifier</title>
+  <title>Adam Applegate - ML Image Gatherer</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -61,11 +61,11 @@
 
           <div class="col">
             <div class="portfolio-info">
-              <h3>Bird Identifier</h3>
+              <h3>ML Image Gatherer</h3>
               <ul>
                 <li><strong>Categories</strong>: Web Scraping, CLI, Tools</li>
                 <li><strong>Technologies</strong>: Python, Argparse, Selenium</li>
-                <!-- <li><strong>Project date</strong>:2021</li> -->
+                <!-- <li><strong>Project date</strong>:2023</li> -->
                 <li><strong>Source Code</strong>: <a href="https://github.com/adamgate/ML-Image-Gatherer" target="_blank">Github Link</a></li>
               </ul>
               <p>A python cli app that scrapes images from the web for training image classification ML algorithms.</p>
@@ -76,19 +76,59 @@
                     <div class="row">
                         <div class="col">
                             <h2 class="display-6 fw-bold">Summary</h2>
-                            <p>ML Image Gatherer was created because of a need that arose within my Bird Identifier app. While Bird Identifier could attempt identifying photos, it really wasn't very accurate in a lot of cases. I needed some way to get lots of images that would let me train the image classification algorithm to be smarter. And so, ML Image Gatherer was born.
-                              <!-- <ul>
-                                <li>A backend server written in C# & .NET that does the image processing</li>
-                                <li>A frontend web app written in Angular & TypeScript that sends images to the backend, and displays the server's info to the user</li>
+                            <p>
+                              ML Image Gatherer was created because of a need that arose within my Bird Identifier app. While Bird Identifier could attempt identifying photos, it really wasn't very accurate in a lot of cases. 
+                              I needed some way to get lots of images that would let me train the image classification algorithm to be smarter. And so, ML Image Gatherer was born.
+                            </p>
+                            <p>The app works by allowing users to pass a search query in through the command line, and then it will go to google images and scrape a number of images of that query and save them. Those images can then be vetted and consumed by a machine learning algorithm so it can learn to classify images.</p>
+                            <br>
+                            <h3>Commands</h3>
+                            <p>There are two main commands in image gatherer: <kbd>--query</kbd> and <kbd>--batch</kbd>.</p>
+                            <p><b>Query</b> is the most basic command. It tells the app to go scrape images for a single subject. </p>
+                            <p>
+                              <b>Batch</b> allows users to populate a text file with any number of queries, and then the app will scrape images for every single one of them. It utilizes multithreading to scrape a number of queries at the same time. 
+                              This command greatly increases how effective the app is. In Bird Identifier, I wanted to train the algorithm how to identify hundreds of different bird species. Instead of entering each query individually, this allows me to simply populate a text file and let the app do all of the hard work.
+                            </p>
+                            <h4>Options</h4>
+                            <p>Each of the main commands has several options that allow the user to tweak the behavior. The options include:
+                              <ul>
+                                <li><kbd>--help</kbd>: lists all of the possible commands and options.</li>
+                                <li><kbd>--num</kbd>: determines the number of images scraped. Accepts 1-100, and defaults to 10.</li>
+                                <li><kbd>--path</kbd>: determines where the images will be saved.</li>
+                                <li><kbd>--threads</kbd>: exclusively for <b>batch</b>. Determines the number of queries that are scraped concurrently.</li>
+                                <li><kbd>--no-headless</kbd>: allows the scraper to run in real mode, allowing the user to see the scraping in action.</li>
+                                <li><kbd>--debug</kbd>: enables debug logging.</li>
                               </ul>
                             </p>
-                            <p>Currently, Bird Identifier can only identify around 400 species of birds.</p>
-                            <br>
-            
                             <h3>How it Works</h3>
-                            <p>The first step in getting this app off of the ground was getting the machine learning model set up, since that forms the core of the app. I decided to use <a href="https://dotnet.microsoft.com/en-us/learn/ml-dotnet/what-is-mldotnet" target="_blank">ML.NET</a>, a free machine learning framework for .NET devs, that did a lot of the heavy lifting for me.</p>
-                            <p>Using ML.NET, I created an image classification machine learning model that excels at identifying objects. </p>
-                          </div> -->
+                            <p>The app utilizes 2 libraries for most of its functionality: argparse and selenium.</p>
+                            <p><b>Argparse</b> is a python library that makes building CLI apps very easy. It handles all of the commands and options passed in through the terminal.</p>
+                            <p>
+                            <b>Selenium</b> is a browser automation tool that I chose to use for webscraping. Because Image Gatherer targets Google for its images, many normal webscraping libraries wouldn't work because they don't interact with JavaScript and reactive 
+                              websites. Selenium doesn't have this issue becaues it mimics a normal web browser, and it can load JavaScript pages. This means the app is a bit slower than other webscrapers, but it's a necessary evil.
+                            </p>
+                            <p>
+                              When a user passes a command into the app, like so: <code>py image-gatherer.py --query dog -num 100</code>, all of the CLI arguments are parsed first. This command tells the app to scrape images for a single query, labelled <i>"dog"</i>, 
+                              and to get 100 images. The arguments are then passed to the webscraper, which creates an instance of Selenium that loads google and searches for the query. 
+                            </p>
+                            <p>
+                              Depending on how many images are needed, the scraper will scroll to the bottom of the page to load as many images as possible. After the images are loaded, Selenium selects each image sequentially (so we get the higher resolution version) and saves the <code>[src]</code> of each image.
+                              These images are then saved to a folder based on the user's <kbd>path</kbd> argument.
+                            </p>
+                            <p>
+                              If the user selects the <kbd>batch</kbd> command, the app will first load all of the queries from the batch file. Then it creates a <code>ProcessPoolExecutor</code> that runs <code>X</code> number of queries at the same time, allowing the app to process
+                              them much more quickly than if it was sequential.
+                            </p>
+                            <h3>Other Notes</h3>
+                            <p>
+                              The app has a few other useful features (at least for the developer). The <kdb>debug</kdb> option tells the app to save debug information to a log file. In addition to this, the app will take screenshots of the webscraper when it 
+                              encounters errors, making debugging the app much easier, especially in headless mode.</p>
+                            <h3>Wrap Up</h3>
+                            <p>
+                              Image Gatherer really isn't a complicated app. It was designed to do one task and to do it well. Despite that simplicity, it taught me a lot about many different topics and I was able to add many more features than if it was 
+                              more technically convoluted. I've really enjoyed working on this project, and I definitely want to come back to it someday.
+                            </p>
+                          </div>
         </div>
     </section><!-- End Portfolio Details Section -->
 
