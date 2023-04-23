@@ -117,8 +117,9 @@
                             </p>
                             <p>
                               If the user selects the <kbd>batch</kbd> command, the app will first load all of the queries from the batch file. Then it creates a <code>ProcessPoolExecutor</code> that runs <code>X</code> number of queries at the same time, allowing the app to process
-                              them much more quickly than if it was sequential.
+                              them much more quickly than if it was sequential. Images for each individual query are labelled and saved to a query specific sub-folder, allowing for easy consumption by a ML algorithm.
                             </p>
+                            <p>Once the images are all downloaded, the user needs to check each of them to ensure they're appropriate for the training of the machine learning algorithm. Once that's done they can be easily imported by the ML algorithm for training!</p>
                             <h3>Other Notes</h3>
                             <p>
                               The app has a few other useful features (at least for the developer). The <kdb>debug</kdb> option tells the app to save debug information to a log file. In addition to this, the app will take screenshots of the webscraper when it 
