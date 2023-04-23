@@ -74,8 +74,13 @@
                   <a href="https://www.netlify.com/" target="_blank">Netlify</a>
                 </li>
                 <!-- <li><strong>Project date</strong>:2021</li> -->
-                <li><strong>Source Code</strong>: <a href="https://github.com/adamgate/BirdIdentifier-Frontend" target="_blank">Frontend | </a><a href="https://github.com/adamgate/BirdIdentifier" target="_blank">Backend</a></li>
-                <li><strong>App Link</strong>: <a href="https://bird-identifier.netlify.app/" target="_blank">bird-identifier.netlify.app</a></li>
+                <li><strong>Source Code</strong>: 
+                  <a href="https://github.com/adamgate/BirdIdentifier-Frontend" target="_blank">Frontend | </a>
+                  <a href="https://github.com/adamgate/BirdIdentifier" target="_blank">Backend </a>
+                <li><strong>App Link</strong>: 
+                  <a href="https://bird-identifier.netlify.app/" target="_blank"> Frontend | </a>
+                  <a href="https://bird-identifier-backend.herokuapp.com/swagger/index.html">Swagger Endpoint Documentation</a>
+                </li>
               </ul>
               <p>Bird Identifier is a web app that uses machine learning to help users identify birds in their pictures.</p>
             </div>
@@ -91,13 +96,65 @@
                                 <li>A frontend web app written in Angular & TypeScript that sends images to the backend, and displays the server's info to the user</li>
                               </ul>
                             </p>
-                            <p>Currently, Bird Identifier can only identify around 400 species of birds.</p>
+                            <p>Currently Bird Identifier can only identify around 400 species of birds, many of which aren't native to North America. I am in the process of fixing this with my ML Image Gatherer CLI tool.</p>
                             <br>
             
-                            <h3>How it Works</h3>
-                            <p>The first step in getting this app off of the ground was getting the machine learning model set up, since that forms the core of the app. I decided to use <a href="https://dotnet.microsoft.com/en-us/learn/ml-dotnet/what-is-mldotnet" target="_blank">ML.NET</a>, a free machine learning framework for .NET devs, that did a lot of the heavy lifting for me.</p>
-                            <p>Using ML.NET, I created an image classification machine learning model that excels at identifying objects. </p>
-                          </div>
+                            <h3 class="fw-bold">How It Works</h3>
+                            <h4>Backend</h4>
+                              <p>The backend is an ASP.NET REST API. The API is pretty simple and only has 2 different endopints:
+                                <ol>
+                                  <li><kbd>/heartbeat</kbd>: reports the status of the backend</li>
+                                  <li><kbd>/images</kbd>: provides access to the ML algorithm and only accepts images.</li>
+                                </ol>
+                                The <b>heartbeat</b> endpoint is very straightforward. It simply returns a JSON object that states the health of the backend. The frontend can ping this endpoint to make sure that it can connect to the backend.
+                              </p>
+                              <p>
+                                The <b>images</b> endpoint is where the meat of the backend lies. When a request is received by the endpoint, the backend first checks that an image of the proper type is present. If so, the image is first sent to a utility function that 
+                                creates a SHA256 checksum of the image. The app then checks if this image has already been classified based on the checksum. If it hasn't been classified then the checksum is cached along with the result of the prediction, meaning that repeat images won't need to be processed multiple times. This saves processing power.
+                              </p>
+                              <p>
+                                Once the checksum is created, the image is sent to the ML algorithm for classification. The algorithm tells the endpoint what bird it thinks the image contains, along with a number that indicates how certain the algorithm is about the classification.
+                                This information is prettified and packaged up for the user along with a few other items, and then it is sent back via an HTTP response.
+                              </p>
+                              <p>The app used to have some database functionality that allowed users to give feedback on the ML algorithms' predictions, but it currently isn't in use.</p>
+                              <p>That's it for the backend! It really isn't that complicated. </p>
+                            <br>
+
+                            <h4>Frontend</h4>
+                            <p>
+                              The frontend is even simpler than the backend. It was built using Angular, and only uses a single page. It currently only does 3 things:
+                              <ul>
+                                <li>It pings the <kbd>heartbeat</kbd> endpoint and warns the user if it is unable to connect to the server.</li>
+                                <li>It allows the user to upload images (although the filetype checking isn't very strict), which it then converts into an <code>HTTP POST</code> request that it sends to the backend. </li>
+                                <li>It displays the backend's response in a pretty format along with the user's image.</li>
+                              </ul>
+                            </p>
+                            <br>
+                                                        
+                            <h3 class="fw-bold">Difficulties</h3>
+                              <p>
+                                By far the most difficult aspect of this project has been training the machine learning algorithm. Huge datasets are needed to develop a very accurate one, and I don't have the resources to do that. Bird Identifier was initially trained with
+                                an open source dataset of 400 birds from Kaggle, but this dataset had many birds not found in North America and caused the ML algorithm to often give incorrect classifications. I have put together a batch image scraping tool that is helping me to
+                                build a more robust dataset of birds to improve Bird Identifier's classifications. 
+                              </p>
+                              <p>
+                                The unfortunate reality is that there are thousands of bird species in the world, and Bird Identifier will never be able to identify most of them. That would take time and
+                                resources that I can't provide for a small personal project.
+                              </p>
+                              <p>
+                                Another issue that I've had with the app is identifying if a bird is actually present in the image. I realized early on that with the way that the algorithm was developed, the app has no way to identify if an image even contains a bird. That's a huge oversight!
+                                If you upload an image of yourself, it will assume that you're a bird and tell you what kind it thinks you are. I'm working on correcting this by adding another ML image classification algorithm that will determine if the image contains a bird,
+                                and reject the request if it doesn't. 
+                              </p>
+                              <p>However, I'm turning the bug into a feature! I am adding another endpoint where users can upload photos of themselves, and it will tell them what kind of bird it thinks they are. That will give the app just a little more depth and flair.</p>
+                              <br>
+
+                              <h3 class="fw-bold">Wrap Up</h3>
+                              <p>This app is my favorite of all the projects I've worked on. I really love bird watching, so that probably makes me a little biased towards it. I also just enjoyed making something that I've hosted in a production environment, 
+                                that can actually be seen and used by others without them needing to download and understand the command line. 
+                              </p>
+                              <p>I'll see you in my next project.</p>
+                        </div>
         </div>
     </section><!-- End Portfolio Details Section -->
 
